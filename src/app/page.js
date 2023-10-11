@@ -5,9 +5,14 @@ import Image from 'next/image'
 // image
 import BgImage from './assets/image/bg.png'
 import Avatar from './assets/image/avatar.png'
+
+// services
 import { GetAllDataFaq } from './services/faqServices'
+
+// component
 import Devider from './components/Devider'
 import CardCategoryDesktop from './components/CardCategoryDesktop'
+import CardFAQ from './components/CardFAQ'
 
 export default function Home() {
   const [allDataFAQ, setallDataFAQ] = useState()
@@ -102,7 +107,7 @@ export default function Home() {
           </div>
 
           {/* category mobile */}
-          <div className='md:hidden relative bg-red-200 w-[90%]'>
+          <div className='md:hidden relative w-[90%]'>
             <div className='absolute top-[-70px] bg-white px-6 py-4 rounded-[20px] border border-[#E5E3E8] text-[#04332D] w-full'>
               <select 
                 className="bg-gray-50 outfit text-[#04332D] text-base font-normal rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
@@ -140,20 +145,7 @@ export default function Home() {
                 .filter((data) => selectedTopic !== 0 ? data.topic === allDataTopic[selectedTopic].topic : data)
                 .map((item) => 
                   <div key={'cardtopic'+item._id}>
-                    <div 
-                      className='bg-white p-6 rounded-[20px] border border-[#E5E3E8] text-[#04332D] mb-4 mx-4'
-                    > 
-                      {/* title faq */}
-                      <h1 className='outfit font-normal text-[38px] mb-[34px] max-w-[776px]'>{item.title}</h1>
-
-                      {/* short info */}
-                      <p className='outfit text-base font-normal mb-[34px] max-w-[776px]'>{item.shortInfo}</p>
-
-                      <Devider/>
-
-                      {/* longinfo */}
-                      <p className='outfit text-base font-normal mt-[34px] max-w-[776px]'>{item.longInfo}</p>
-                    </div>
+                    <CardFAQ data={item}/>
                   </div>
                 )
               }

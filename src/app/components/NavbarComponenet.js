@@ -8,8 +8,6 @@ import Logo from '../assets/image/logo.png'
 const NavbarComponenet = () => {
   const [isOpen, setisOpen] = useState(false);
 
-  console.log(isOpen)
-
   return (
     <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

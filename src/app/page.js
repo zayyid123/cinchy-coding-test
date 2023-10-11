@@ -1,10 +1,24 @@
+'use client'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // image
 import BgImage from './assets/image/bg.png'
 import Avatar from './assets/image/avatar.png'
+import { GetAllDataFaq } from './services/faqServices'
 
 export default function Home() {
+  const [allDataFAQ, setallDataFAQ] = useState()
+
+  useEffect(() => {
+    const getAllDataFaqFromServices = async() => {
+      const response = await GetAllDataFaq()
+      setallDataFAQ(response.data)
+    }
+
+    getAllDataFaqFromServices()
+  }, [])
+
   return (
     <main className="flex justify-start items-center flex-col">
       {/* image */}

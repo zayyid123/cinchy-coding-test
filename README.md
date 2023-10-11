@@ -11,8 +11,8 @@ Project untuk memenuhi test seleksi pada Chincy.life.
 #### Clone Repositori
 **contoh penggunaan perintah "git clone":**
 ```bash
-$ git clone https://github.com/zayyid123/FrontendDevReactjs-MochamadMuzayyidAlHakim.git
-$ cd FrontendDevReactjs-MochamadMuzayyidAlHakim/
+$ git clone https://github.com/zayyid123/cinchy-coding-test.git
+$ cd cinchy-coding-test/
 ```
 
 #### Install Dependensi

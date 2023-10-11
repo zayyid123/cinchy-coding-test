@@ -1,3 +1,17 @@
+/* fonts nunito sans */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,400;6..12,500;6..12,600;6..12,700&display=swap');
+
+/* fonts outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nunito-sans{
+    font-family: 'nunito sans';
+}
+
+.outfit{
+    font-family: 'outfit';
+}

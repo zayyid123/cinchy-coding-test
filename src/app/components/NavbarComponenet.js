@@ -35,27 +35,27 @@ const NavbarComponenet = () => {
           <div className="flex flex-col p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-slate-200 md:flex-row md:mt-0 md:border-0 md:bg-white">
             
             {/* about us */}
-            <div className='cursor-pointer p-4'>
+            <div className='cursor-pointer hover:bg-[#E5EAE9] mx-1 mt-2 md:mt-0 p-4'>
               <p>About Us</p>
             </div>
 
             {/* pricing */}
-            <div className='cursor-pointer p-4'>
+            <div className='cursor-pointer hover:bg-[#E5EAE9] mx-1 p-4'>
               <p>Pricing</p>
             </div>
 
             {/* FAQ */}
-            <div className='cursor-pointer p-4'>
+            <div className='cursor-pointer hover:bg-[#E5EAE9] mx-1 p-4'>
               <p>FAQ</p>
             </div>
 
             {/* My Booking */}
-            <div className='cursor-pointer p-4'>
+            <div className='cursor-pointer hover:bg-[#E5EAE9] ml-1 mr-2 p-4'>
               <p>My Booking</p>
             </div>
 
             {/* Login */}
-            <div className='cursor-pointer flex justify-center items-center px-4 my-2 rounded-[4px] border mx-3 md:mx-0 py-3 md:py-0 border-[#00332C]'>
+            <div className='cursor-pointer hover:bg-[#E5EAE9] flex justify-center items-center px-4 my-2 rounded-[4px] border mx-3 md:mx-0 py-3 md:py-0 border-[#00332C] bg-white md:bg-none'>
               <p>Login</p>
             </div>
           </div>

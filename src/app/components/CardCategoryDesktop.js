@@ -3,7 +3,7 @@ import React from 'react'
 const CardCategoryDesktop = ({ selectedTopic, setselectedTopic, indexTopic, itemTopic }) => {
   return (
     <div 
-      className={`${selectedTopic === indexTopic && 'bg-[#00332C1A]'} min-w-[264px] mb-[15px] mt-[11.5px] rounded-tr-[10px] rounded-br-[10px] cursor-pointer`}
+      className={`${selectedTopic === indexTopic && 'bg-[#00332C1A]'} min-w-[264px] mb-[15px] mt-[11.5px] rounded-tr-[10px] rounded-br-[10px] cursor-pointer hover:bg-[#eee]`}
       onClick={() => {
         setselectedTopic(indexTopic)
       }}

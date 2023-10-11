@@ -60,7 +60,7 @@ export default function Home() {
     <main className="flex justify-start items-center flex-col max-w-[1440px] m-auto">
       {/* image */}
       <div
-        className='mt-[89px] relative bg-red-100'
+        className='mt-[89px] relative bg-[#E5EAE9]'
       >
         {/* bg image */}
         <Image src={BgImage} className='object-cover h-[500px]' alt='cichy.life bg'/>
@@ -89,7 +89,7 @@ export default function Home() {
             className='bg-white p-6 rounded-[20px] border border-[#E5E3E8] hidden md:block mx-4'
           >
             {
-              allDataTopic &&
+              allDataTopic ?
               allDataTopic.map((item, index) => 
                 <div key={'topic'+index}>
                   <CardCategoryDesktop 
@@ -103,44 +103,64 @@ export default function Home() {
                   <Devider/>
                 </div>
               )
+              :
+              // skeleton category card desktop
+              <div role="status" className="max-w-sm animate-pulse">
+                <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+            </div>
             }
           </div>
 
           {/* category mobile */}
           <div className='md:hidden relative w-[90%]'>
             <div className='absolute top-[-70px] bg-white px-6 py-4 rounded-[20px] border border-[#E5E3E8] text-[#04332D] w-full'>
-              <select 
-                className="bg-gray-50 outfit text-[#04332D] text-base font-normal rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
-                onChange={(e) => {
-                  setselectedTopic(Number(e.target.value))
-                }}
-              >
-                {
-                  allDataTopic &&
-                  allDataTopic.map((item, index) => 
-                    <option key={'optionTopicsMobile'+index} value={index} >{item.topic} ({item.count})</option>
-                  )
-                }
-              </select>
+              {
+                allDataTopic ?
+                <select 
+                  className="bg-gray-50 outfit text-[#04332D] text-base font-normal rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full"
+                  onChange={(e) => {
+                    setselectedTopic(Number(e.target.value))
+                  }}
+                >
+                  {
+                    allDataTopic.map((item, index) => 
+                      <option key={'optionTopicsMobile'+index} value={index} >{item.topic} ({item.count})</option>
+                    )
+                  }
+                </select>
+                :
+                <div className='animate-pulse'>
+                  <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                </div>
+              }
             </div>
           </div>
 
           {/* FAQ */}
-          <div>
+          <div 
+            className={`${!allDataFAQ && 'w-[50%]'}`}
+          >
             {/* selected FAQ */}
             <div
               className='hidden md:block'
             >
               {
-                allDataTopic &&
+                allDataTopic ?
                 <h2 className='min-h-[88px] mb-[21px] outfit text-4xl font-semibold mx-4'>{allDataTopic[selectedTopic].topic}</h2>
+                :
+                // skeleton selected faq
+                <div className='min-h-[88px] mb-[21px] animate-pulse w-full'>
+                  <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                </div>
               }
             </div>
 
             {/* card FAQ */}
             <div>
               {
-                allDataFAQ &&
+                allDataFAQ ?
                 allDataFAQ
                 .filter((data) => selectedTopic !== 0 ? data.topic === allDataTopic[selectedTopic].topic : data)
                 .map((item) => 
@@ -148,6 +168,18 @@ export default function Home() {
                     <CardFAQ data={item}/>
                   </div>
                 )
+                :
+                // card FAQ Skeleton
+                <div>
+                  {
+                    [1,2,3,4,5].map((item, index) => 
+                      <div key={'cardSkeletonFaq'+index} className="animate-pulse w-[100%] bg-white p-6 rounded-[20px] border border-[#E5E3E8] text-[#04332D] mb-4 mx-4">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-2.5"></div>
+                      </div>
+                    )
+                  }
+                </div>
               }
             </div>
           </div>
